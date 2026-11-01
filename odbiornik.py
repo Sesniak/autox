@@ -56,10 +56,6 @@ while True:
         if abs(forward_backward) < 25: forward_backward = 0
         if abs(left_right) < 25: left_right = 0
         
-        #Skrecanie
-        speed_l = forward_backward + left_right
-        speed_r = forward_backward - left_right
-        
         # Ograniczenie do zakresu
         speed_l = max(-255, min(255, speed_l))
         speed_r = max(-255, min(255, speed_r))
@@ -68,6 +64,6 @@ while True:
         set_motor(speed_l, dir1, dir2, pwm_l)
         set_motor(speed_r, dir3, dir4, pwm_r)
     else:
-        #Jesli nadajnik nie przesyla informacji, zetrzymuje silniki
+        #Jesli nadajnik nie przesyla informacji, zatrzymuje silniki
         set_motor(0, dir1, dir2, pwm_l)
         set_motor(0, dir3, dir4, pwm_r)
